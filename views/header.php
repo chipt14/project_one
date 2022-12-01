@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Home</title>
+	<title>Fashe</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="./views/public/css/style.css">
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="./views/public/images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -34,6 +36,7 @@
 	<link rel="stylesheet" type="text/css" href="./views/public/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./views/public/css/main.css">
 <!--===============================================================================================-->
+
 </head>
 <body class="animsition">
 
@@ -45,8 +48,6 @@
 				<div class="topbar-social">
 					<a href="#" class="topbar-social-item fa fa-facebook"></a>
 					<a href="#" class="topbar-social-item fa fa-instagram"></a>
-					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
 					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
 				</div>
 
@@ -88,23 +89,14 @@
 							<li>
 								<a href="index.php?act=contact">LIÊN HỆ</a>
 							</li>
-							<li>
-								|
-							</li>
-							<li>
-								<form action="search_product.php" method="GET" name="search">
-									<input type="text" name="keyword" placeholder="Tìm kiếm" required="">
-									<button type="submit"><i class="fa fa-search"></i></button>
-								</form>
-							</li>
 						</ul>
 					</nav>
 				</div>
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="./views/public/images/icons/icon-header-01.png" class="header-icon1" alt="ICON" title="Đăng ký / Đăng nhập">
+					<a href="index.php?act=login" class="header-wrapicon1 dis-block">
+						<img src="./views/public/images/icons/icon-header-01.png" class="header-icon1" alt="ICON" title="Đăng nhập / Đăng ký">
 					</a>
 
 					<span class="linedivide1"></span>
@@ -314,8 +306,6 @@
 						<div class="topbar-social-mobile">
 							<a href="#" class="topbar-social-item fa fa-facebook"></a>
 							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
 							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
 						</div>
 					</li>
@@ -345,9 +335,9 @@
 	</header>
 	<div class="flex-c-m size22 bg0 s-text21 pos-relative" id="discount_">
 		<span>
-			Đăng kí để nhận mã giảm giá 10% cho lần mua hàng đầu tiên tại shop
-			<a href="authenticator/registration.php" class="s-text22 hov6 p-l-5">
-				Đăng kí ngay
+			Đăng ký để nhận mã giảm giá 10% cho lần mua hàng đầu tiên tại shop
+			<a href="index.php?act=register" class="s-text22 hov6 p-l-5">
+				Đăng ký ngay
 			</a>
 		</span>
 

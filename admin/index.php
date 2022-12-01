@@ -15,11 +15,15 @@
             case 'addCate':
                 if ((isset($_POST['saveCate'])) && ($_POST['saveCate'])) {
                     $nameCate = $_POST['nameCate'];
-                    insert_category($nameCate);
-                    $thongbao = 'Thêm thành công';
+                    $fileName = $_FILES['image']['name'];
+                    $target_dir = "../uploads/admin/category/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {}
+                    insert_category($nameCate, $fileName);
+                    $thongbao = 'Thêm mới thành công';
                 }
                 include_once 'category/add.php';
-                // header('Location: category/list.php');
                 break;
             case 'listCate':
                 $listCate = load_all_category();
@@ -42,7 +46,12 @@
                 if ((isset($_POST['saveCate'])) && ($_POST['saveCate'])) {
                     $id = $_POST['id'];
                     $nameCate = $_POST['nameCate'];
-                    update_category($id, $nameCate);
+                    $fileName = $_FILES['image']['name'];
+                    $target_dir = "../uploads/admin/category/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {}
+                    update_category($id, $nameCate, $fileName);
                 }
                 $listCate = load_all_category();
                 include_once 'category/list.php';
@@ -57,12 +66,12 @@
                     $sale = $_POST['sale'];
                     $desc = $_POST['desc'];
                     $fileName = $_FILES['image']['name'];
-                    $target_dir = "../uploads/";
+                    $target_dir = "../uploads/admin/product/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
 
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {}
                     insert_product($nameProd, $price, $sale, $fileName, $desc, $cateId);
-                    echo $thongbao = 'Thêm mới thành công';
+                    $thongbao = 'Thêm mới thành công';
                 }
                 $listCate = load_all_category();
                 include_once 'product/add.php';
@@ -102,14 +111,10 @@
                     $sale = $_POST['sale'];
                     $descrip = $_POST['descrip'];
                     $fileName = $_FILES['image']['name'];
-                    $target_dir = "../uploads/";
+                    $target_dir = "../uploads/admin/product/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
 
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                        // echo "The file ". htmlspecialchars( basename( $_FILES["hinhsp"]["name"])). " has been uploaded.";
-                    } else {
-                        // echo "Sorry, there was an error uploading your file.";
-                    }
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {}
                     update_product($id, $name, $price, $sale, $fileName, $descrip, $cateId);
                     $thongbao = 'Cập nhật thành công';
                 }

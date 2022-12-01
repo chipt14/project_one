@@ -39,6 +39,20 @@
         return $listProd;
     }
 
+    function load_all_product_new()
+    {
+        $sql = "SELECT * FROM products WHERE sale = 0";
+        $listProd = pdo_query($sql);
+        return $listProd;
+    }
+    
+    function load_all_product_sale()
+    {
+        $sql = "SELECT * FROM products WHERE sale > 0";
+        $listProd = pdo_query($sql);
+        return $listProd;
+    }
+    
     function load_one_product($id)
     {
         $sql = "SELECT * FROM products WHERE id = $id";
@@ -46,19 +60,16 @@
         return $product;
     }
 
-    function load_name_cate($cate_id)
+    function load_one_product_nameCate($id)
     {
-        if($cate_id > 0) {
-            $sql = "SELECT * FROM categories WHERE id = $cate_id";
-            $cate_id = pdo_query_one($sql);
-            extract($cate_id);
-            return $name;
-        } else {
-            return "";
-        }
+        $sql = "SELECT categories.name FROM categories JOIN products ON categories.id=products.cate_id WHERE products.id = $id";
+        $nameCate = pdo_query_one($sql);
+        return $nameCate;
     }
 
-    function load_product_cungloai($id, $cateId)
+    
+
+    function load_product_same($id, $cateId)
     {
         $sql = "SELECT * FROM products WHERE cate_id = $cateId AND id <> $id";
         $listProd = pdo_query($sql);

@@ -24,7 +24,7 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <table class="table table-bordered text-center text-uppercase">
+                    <table class="table table-bordered text-center">
                       <thead>
                         <tr>
                           <th> # </th>
@@ -45,7 +45,7 @@
                                     <td> <?= $value['cate_id'] ?></td>
                                     <td> <?=$value['name']?> </td>
                                     <td> 
-                                        <img src="../uploads/<?= $value['img'] ?>" class="mb-2 mw-100 w-100 mh-100 rounded" alt="image" style="height: 100px !important;">
+                                        <img src="../uploads/admin/product/<?= $value['img'] ?>" class="mb-2 mw-100 w-100 mh-100 rounded" alt="image" style="height: 100px !important;">
                                     </td>
                                     <td> <?=$value['descrip']?> </td>
                                     <td> <?=$value['views']?> </td>

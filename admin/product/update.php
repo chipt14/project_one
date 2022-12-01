@@ -21,7 +21,7 @@
                         <label>Hình ảnh</label>
                         <input class="form-control form-control-lg" id="formFileLg" type="file" name='image' />
                         <br>
-                        <img style="width: 300px;" class="" src="../uploads/<?= $prod['img'] ?>" alt="">
+                        <img style="width: 300px;" class="" src="../uploads/admin/product/<?= $prod['img'] ?>" alt="">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName2">Giá sản phẩm</label>

@@ -1,8 +1,8 @@
 <?php
 
-    function insert_category($nameCate)
+    function insert_category($nameCate, $fileName)
     {
-        $sql = "INSERT INTO categories (name) VALUES ('$nameCate')";
+        $sql = "INSERT INTO categories (name, img) VALUES ('$nameCate', '$fileName')";
         pdo_execute($sql);
     }
 
@@ -26,8 +26,24 @@
         return $dm;
     }
 
-    function update_category($id, $nameCate)
+    function update_category($id, $nameCate, $fileName)
     {
-        $sql = "UPDATE categories SET name = '$nameCate' WHERE id = $id";
+        if($fileName != ""){
+            $sql = "UPDATE categories SET name = '$nameCate', img = '$fileName' WHERE id = $id";
+        } else{
+            $sql = "UPDATE categories SET name = '$nameCate' WHERE id = $id";
+        }
         pdo_execute($sql);
+    }
+
+    function load_name_category($cate_id)
+    {
+        if($cate_id > 0) {
+            $sql = "SELECT * FROM categories WHERE id = $cate_id";
+            $cate_id = pdo_query_one($sql);
+            extract($cate_id);
+            return $name;
+        } else {
+            return "";
+        }
     }

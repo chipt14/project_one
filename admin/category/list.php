@@ -19,6 +19,7 @@
                                     <th>STT</th>
                                     <th>MÃ</th>
                                     <th>TÊN</th>
+                                    <th style="width: 300px;"> Hình ảnh </th>
                                     <th>HÀNH ĐỘNG</th>
                                 </tr>
                             </thead>
@@ -29,6 +30,9 @@
                                         <td><?=$value['id']?></td>
                                         <td> 
                                             <p><?=$value['name']?></p>
+                                        </td>
+                                        <td> 
+                                            <img src="../uploads/admin/category/<?= $value['img'] ?>" class="mb-2 mw-100 w-100 mh-100 rounded" alt="image" style="height: 100px !important;">
                                         </td>
                                         <td> 
                                             <div class="template-demo" style="text-align: center;">

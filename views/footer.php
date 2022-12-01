@@ -14,7 +14,6 @@
 							<div class="flex-m p-t-30">
 								<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
 								<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-								<a href="#" class="fs-18 color1 p-r-20 fa fa-twitter"></a>
 								<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
 							</div>
 						</div>
@@ -65,6 +64,8 @@
 
 	<!-- Container Selection1 -->
 	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+
 
 <!--===============================================================================================-->
 <script type="text/javascript" src="./views/public/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -79,6 +80,11 @@
 		$(".selection-1").select2({
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect1')
+		});
+
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect2')
 		});
 	</script>
 <!--===============================================================================================-->
@@ -108,6 +114,9 @@
 
 <!--===============================================================================================-->
 	<script src="./views/public/js/main.js"></script>
+
+<!-- Add -->
+
 
 </body>
 </html>

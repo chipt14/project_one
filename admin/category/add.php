@@ -11,10 +11,14 @@
           <div class="col-12 grid-margin stretch-card">
               <div class="card">
                   <div class="card-body">
-                      <form action="index.php?act=addCate" method="POST" class="forms-sample">
+                      <form action="index.php?act=addCate" method="POST" enctype="multipart/form-data" class="forms-sample">
                           <div class="form-group">
                               <label for="exampleInputName1">Tên danh mục</label>
                               <input type="text" class="form-control" id="exampleInputName1" name="nameCate" placeholder="Nhập tên danh mục">
+                          </div>
+                          <div class="form-group">
+                            <label>Hình ảnh</label>
+                            <input class="form-control form-control-lg" id="formFileLg" type="file" name='image' />
                           </div>
                           <input type="submit" class="btn btn-gradient-primary me-2" name="saveCate">
                           <button class="btn btn-light" type="reset">Đặt lại</button>
