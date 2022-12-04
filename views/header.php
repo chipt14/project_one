@@ -76,6 +76,11 @@
 
 							<li>
 								<a href="index.php?act=product">SẢN PHẨM</a>
+								<ul class="sub_menu">
+									<?php foreach ($listCate as $cate) :?>
+										<li class="text-uppercase"><a href="index.php?act=product&cateId=<?=$cate['id']?>"><?=$cate['name']?></a></li>
+									<?php endforeach ?>
+								</ul>
 							</li>
 
 							<li>
@@ -95,88 +100,41 @@
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="index.php?act=login" class="header-wrapicon1 dis-block">
-						<img src="./views/public/images/icons/icon-header-01.png" class="header-icon1" alt="ICON" title="Đăng nhập / Đăng ký">
-					</a>
+					<?php if (isset($_SESSION['acc'])) { 
+						extract($_SESSION['acc']);
+					?>
+						<div class="wrap_menu">
+							<nav class="menu">
+								<ul class="main_menu">
+									<li>
+										<span>Xin chào! <?=$username?></span>
+										<ul class="sub_menu">
+											<li><a href="index.php?act=editAcc">Cập nhật tài khoản</a></li>
+											<li><a href="index.php?act=mybill">Đơn hàng của bạn</a></li>
+											<?php if($role == 1) { ?>
+												<li><a href="admin/index.php">Đăng nhập Admin</a></li>
+											<?php } ?>
+											<li><a href="index.php?act=logout">Thoát</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					<?php
+						} else {
+					?>
+						<a href="index.php?act=login" class="header-wrapicon1 dis-block">
+							<i class="fa fa-sign-in fa-lg pt-2" title="Đăng nhập / Đăng kí"></i>
+						</a>
+					<?php } ?>
 
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<img src="./views/public/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON" title="Giỏ hàng">
+						<a href="index.php?act=viewcart">
+							<img src="./views/public/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON" title="Giỏ hàng">
+						</a>
 						<span class="header-icons-noti">0</span>
-
-						<!-- Header cart noti -->
-						<div class="header-cart header-dropdown">
-							<ul class="header-cart-wrapitem">
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="./views/public/images/item-cart-01.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											White Shirt With Pleat Detail Back
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="./views/public/images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="./views/public/images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-									</div>
-								</li>
-							</ul>
-
-							<div class="header-cart-total">
-								Total: $75.00
-							</div>
-
-							<div class="header-cart-buttons">
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
-								</div>
-
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
-									</a>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -193,88 +151,17 @@
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="./views/public/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+					<a href="index.php?act=login" class="header-wrapicon1 dis-block">
+						<i class="fa fa-sign-in fa-lg pt-2" title="Đăng nhập / Đăng kí"></i>
 					</a>
 
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">
-						<img src="./views/public/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+						<a href="index.php?act=viewcart">
+							<img src="./views/public/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+						</a>
 						<span class="header-icons-noti">0</span>
-
-						<!-- Header cart noti -->
-						<div class="header-cart header-dropdown">
-							<ul class="header-cart-wrapitem">
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="./views/public/images/item-cart-01.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											White Shirt With Pleat Detail Back
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="./views/public/images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="./views/public/images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-									</div>
-								</li>
-							</ul>
-
-							<div class="header-cart-total">
-								Total: $75.00
-							</div>
-
-							<div class="header-cart-buttons">
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
-								</div>
-
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
-									</a>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 
@@ -315,7 +202,13 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.php?act=product">Sản phẩm</a>
+						<a href="index.php">Sản phẩm</a>
+						<ul class="sub-menu">
+							<?php foreach ($listCate as $cate) :?>
+								<li class="text-uppercase"><a href="index.php?act=product&cateId=<?=$cate['id']?>"><?=$cate['name']?></a></li>
+							<?php endforeach ?>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
@@ -333,15 +226,18 @@
 			</nav>
 		</div>
 	</header>
-	<div class="flex-c-m size22 bg0 s-text21 pos-relative" id="discount_">
-		<span>
-			Đăng ký để nhận mã giảm giá 10% cho lần mua hàng đầu tiên tại shop
-			<a href="index.php?act=register" class="s-text22 hov6 p-l-5">
-				Đăng ký ngay
-			</a>
-		</span>
-
-		<button class="flex-c-m pos2 size23 colorwhite eff3 trans-0-4 btn-romove-top-noti">
-			<i class="fa fa-remove fs-13" aria-hidden="true"></i>
-		</button>
-	</div>
+	<?php if(isset($_SESSION['acc'])) :?>
+	<?php else :?>
+		<div class="flex-c-m size22 bg0 s-text21 pos-relative" id="discount_">
+			<span>
+				Đăng ký để nhận mã giảm giá 10% cho lần mua hàng đầu tiên tại shop
+				<a href="index.php?act=register" class="s-text22 hov6 p-l-5">
+					Đăng ký ngay
+				</a>
+			</span>
+	
+			<button class="flex-c-m pos2 size23 colorwhite eff3 trans-0-4 btn-romove-top-noti">
+				<i class="fa fa-remove fs-13" aria-hidden="true"></i>
+			</button>
+		</div>
+	<?php endif ?>

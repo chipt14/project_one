@@ -81,22 +81,6 @@
 						</div>
 					</div>
 
-					<div class="flex-m flex-w">
-						<div class="s-text15 w-size15 t-center">
-							Color
-						</div>
-
-						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-							<select class="selection-2" name="color">
-								<option>Choose an option</option>
-								<option>Gray</option>
-								<option>Red</option>
-								<option>Black</option>
-								<option>Blue</option>
-							</select>
-						</div>
-					</div>
-
 					<div class="flex-r-m flex-w p-t-10">
 						<div class="w-size16 flex-m flex-w">
 							<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
@@ -113,9 +97,16 @@
 
 							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
 								<!-- Button -->
-								<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-									THÊM VÀO GIỎ
-								</button>
+								<form action="index.php?act=addCart" method="post">
+									<input type="hidden" name="id" id="" value="<?=$oneProd['id']?>">
+									<input type="hidden" name="name" id="" value="<?=$oneProd['name']?>">
+									<input type="hidden" name="img" id="" value="<?=$oneProd['img']?>">
+									<input type="hidden" name="price" id="" value="<?=$oneProd['price']?>">
+									<input type="hidden" name="sale" id="" value="<?=$oneProd['sale']?>">
+									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" value="submit" name="addCart">
+										THÊM VÀO GIỎ
+									</button>
+								</form>
 							</div>
 						</div>
 					</div>

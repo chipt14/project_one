@@ -1,7 +1,13 @@
 <?php
+    session_start();
+    ob_start();
+
     require_once '../model/pdo.php';
     require_once '../model/category.php';
     require_once '../model/product.php';
+    require_once '../model/account.php';
+    require_once '../model/cart.php';
+
 
     require_once "header.php";
     require_once "sidebar.php";
@@ -11,7 +17,7 @@
         $act = $_GET['act'];
         switch ($act) {
 
-            /*controller danh mục */
+            /*controller cate */
             case 'addCate':
                 if ((isset($_POST['saveCate'])) && ($_POST['saveCate'])) {
                     $nameCate = $_POST['nameCate'];
@@ -120,6 +126,21 @@
                 }
                 $listProd = load_all_product("", 0);
                 include_once 'product/list.php';
+                break;
+            
+            /*controller bill */
+            case 'listBill':
+                $listBill = load_all_bill(0);
+                include_once 'bill/list.php';
+                break;
+            case 'billDetail':
+                $listViewDetail = load_all_view_detail($_GET['id']);
+                include_once 'bill/detail.php';
+                break;
+            /*controller user */
+            case'listUser':
+                $listAcc = load_all_account();
+                include_once 'account/list.php';
                 break;
             default:
                 require_once "main.php";

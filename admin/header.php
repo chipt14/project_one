@@ -38,15 +38,19 @@
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Pham Thanh Chi</p>
+                  <?php if (isset($_SESSION['acc']['username'])) :?>
+                    <p class="mb-1 text-black">Xin chào! <?=$_SESSION['acc']['username']?></p>
+                  <?php else :?>
+                    <p class="mb-1 text-black">Lại vào bằng URL!</p>
+                  <?php endif ?>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
+                <a class="dropdown-item" href="../index.php">
+                  <i class="mdi mdi-cached me-2 text-success"></i> Về trang chủ </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                <!-- <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a> -->
               </div>
             </li>
             <li class="nav-item d-none d-lg-block full-screen-link">
@@ -54,11 +58,11 @@
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
               </a>
             </li>
-            <li class="nav-item nav-logout d-none d-lg-block">
+            <!-- <li class="nav-item nav-logout d-none d-lg-block">
               <a class="nav-link" href="#">
                 <i class="mdi mdi-power"></i>
               </a>
-            </li>
+            </li> -->
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>

@@ -9,16 +9,16 @@
                 </a>
               </nav>
             </div>
-            <form action="index.php?act=listProd" method="post">
-                <input type="text" name="keyw">
-                <select name="cate_id" id="">
-                    <option value="0" selected>Tất cả</option>
-                    <?php foreach ($listCate as $cate) :?>
-                        <option value="<?=$cate['id']?>"><?=$cate['name']?></option>
-                    <?php endforeach ;?>
-                </select>
-                <input type="submit" name="listok" value="SEARCH" class="rounded btn-gradient-danger">
-            </form>
+              <form action="index.php?act=listProd" method="post">
+                  <input type="text" name="keyw">
+                  <select name="cate_id" id="">
+                      <option value="0" selected>Tất cả</option>
+                      <?php foreach ($listCate as $cate) :?>
+                          <option value="<?=$cate['id']?>"><?=$cate['name']?></option>
+                      <?php endforeach ;?>
+                  </select>
+                  <input type="submit" name="listok" value="Tìm kiếm" class="rounded btn-gradient-danger">
+              </form>
             <br><br>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
@@ -30,7 +30,7 @@
                           <th> # </th>
                           <th> Mã loại </th>
                           <th> Tên sản phẩm </th>
-                          <th style="width: 300px;"> Hình ảnh </th>
+                          <th style="width: 150px;"> Hình ảnh </th>
                           <th> Mô tả </th>
                           <th> Lượt xem </th>
                           <th> Giá </th>

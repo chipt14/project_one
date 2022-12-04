@@ -130,9 +130,16 @@
 	
 												<div class="block2-btn-addcart w-size1 trans-0-4">
 													<!-- Button -->
-													<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-														THÊM VÀO GIỎ
-													</button>
+													<form action="index.php?act=addCart" method="post">
+														<input type="hidden" name="id" id="" value="<?=$value['id']?>">
+														<input type="hidden" name="name" id="" value="<?=$value['name']?>">
+														<input type="hidden" name="img" id="" value="<?=$value['img']?>">
+														<input type="hidden" name="price" id="" value="<?=$value['price']?>">
+														<input type="hidden" name="sale" id="" value="<?=$value['sale']?>">
+														<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" value="submit" name="addCart">
+															THÊM VÀO GIỎ
+														</button>
+													</form>
 												</div>
 											</div>
 										</div>
@@ -170,15 +177,22 @@
 
 											<div class="block2-btn-addcart w-size1 trans-0-4">
 												<!-- Button -->
-												<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-													THÊM VÀO GIỎ
-												</button>
+												<form action="index.php?act=addCart" method="post">
+													<input type="hidden" name="id" id="" value="<?=$value['id']?>">
+													<input type="hidden" name="name" id="" value="<?=$value['name']?>">
+													<input type="hidden" name="img" id="" value="<?=$value['img']?>">
+													<input type="hidden" name="price" id="" value="<?=$value['price']?>">
+													<input type="hidden" name="sale" id="" value="<?=$value['sale']?>">
+													<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" value="submit" name="addCart">
+														THÊM VÀO GIỎ
+													</button>
+												</form>
 											</div>
 										</div>
 									</div>
 
 									<div class="block2-txt p-t-20 text-center">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="index.php?act=product-detail&prodId=<?=$value['id']?>" class="block2-name dis-block s-text3 p-b-5">
 											<?=$value['name']?>
 										</a>
 
@@ -218,15 +232,22 @@
 	
 												<div class="block2-btn-addcart w-size1 trans-0-4">
 													<!-- Button -->
-													<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-														THÊM VÀO GIỎ
-													</button>
+													<form action="index.php?act=addCart" method="post">
+														<input type="hidden" name="id" id="" value="<?=$value['id']?>">
+														<input type="hidden" name="name" id="" value="<?=$value['name']?>">
+														<input type="hidden" name="img" id="" value="<?=$value['img']?>">
+														<input type="hidden" name="price" id="" value="<?=$value['price']?>">
+														<input type="hidden" name="sale" id="" value="<?=$value['sale']?>">
+														<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" value="submit" name="addCart">
+															THÊM VÀO GIỎ
+														</button>
+													</form>
 												</div>
 											</div>
 										</div>
 	
 										<div class="block2-txt p-t-20 text-center">
-											<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+											<a href="index.php?act=product-detail&prodId=<?=$value['id']?>" class="block2-name dis-block s-text3 p-b-5">
 												<?=$value['name']?>
 											</a>
 											<?php if(($value['sale'] > 0)) :?>
