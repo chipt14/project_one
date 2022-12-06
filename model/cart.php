@@ -59,9 +59,9 @@
 
     function count_all_prod_bill_detail($billId)
     {
-        $sql = "SELECT * FROM bill_detail WHERE bill_id = $billId";
-        $bill = pdo_query($sql);
-        return sizeof($bill);
+        $sql = "SELECT SUM(quantity) FROM bill_detail WHERE bill_id = $billId";
+        $bill = pdo_query_one($sql);
+        return $bill;
     }
     
     function get_status($x)

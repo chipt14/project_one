@@ -4,7 +4,7 @@
             <h3 class="page-title"> Danh sách thành viên </h3>
             <nav aria-label="breadcrumb">
             <button type="button" class="btn btn-gradient-danger btn-icon-text">
-                <i class="mdi mdi-upload btn-icon-prepend"></i> <a href="./add_user.html" style="text-decoration: none;">Thêm thành viên</a> </button>
+                <i class="mdi mdi-upload btn-icon-prepend"></i> <a href="index.php?act=addUser" style="text-decoration: none;">Thêm thành viên</a> </button>
             </nav>
         </div>
         <div class="row">
@@ -33,7 +33,7 @@
                                 <td> <?=$value['email']?> </td>
                                 <td> <?=$value['address']?> </td>
                                 <td> <?=$value['tel']?> </td>
-                                <td> <?=$value['role']?> </td>
+                                <td> <?=$value['role_name']?> </td>
                                 <td> 
                                     <div class="template-demo" style="text-align: center;">
                                         <a href="index.php?act=editAcc&id=<?=$value['id']?>">

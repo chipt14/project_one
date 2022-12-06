@@ -142,6 +142,53 @@
                 $listAcc = load_all_account();
                 include_once 'account/list.php';
                 break;
+            case 'addUser':
+                if ((isset($_POST['saveUser'])) && ($_POST['saveUser'])) {
+                    $username = $_POST['username'];
+                    $password = sha1($_POST['password']);
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $tel = $_POST['tel'];
+                    $role = $_POST['role'];
+                   
+                    // echo"<pre>";
+                    // var_dump($listRole);
+                    // die;
+                    insert_account_admin($username, $password, $email, $address, $tel, $role);
+                    $thongbao = 'Thêm mới thành công';
+                }
+                $listRole = load_all_role();
+                include_once 'account/add.php';
+                break;
+            case 'deleteAcc':
+                if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                    delete_account($_GET['id']);
+                }
+                $listAcc = load_all_account();
+                include_once 'account/list.php';
+                break;
+            case 'editAcc':
+                if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                    $acc = load_one_account($_GET['id']);
+                }
+                $listAcc = load_all_account();
+                include_once 'account/update.php';
+                break;
+            case 'updateAcc':
+                if ((isset($_POST['saveAcc'])) && ($_POST['saveAcc'])) {
+                    $id = $_POST['id'];
+                    $username = $_POST['username'];
+                    $password = sha1($_POST['password']);
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $tel = $_POST['tel'];
+                    $role = $_POST['role'];
+
+                    update_account_admin($id, $username, $password, $email, $address, $tel, $role);
+                }
+                $listAcc = load_all_account();
+                include_once 'account/list.php';
+                break;  
             default:
                 require_once "main.php";
                 break;

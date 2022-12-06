@@ -8,7 +8,7 @@
     WHERE id = $id";
 
     pdo_execute($query);
-
+    header("location: index.php?act=listBill");
   }
 ?>
 <div class="main-panel">
@@ -47,7 +47,7 @@
                               Email: <?=$bill['bill_email']?>
                             </td>
                             <td> <?=$bill['order_date']?> </td>
-                            <td><?=$countProd?></td>
+                            <td><?=$countProd['SUM(quantity)']?></td>
                             <td> <?=$bill['total']?> ₫ </td>
                             <td>
                             <form action="" method="post">

@@ -20,9 +20,9 @@
                 $stt = get_status($bill['bill_status']);
             ?>
             <tr>
-              <th class="text-center" scope="row">DH<?=$bill['id']?></th>
+              <td class="text-center" scope="row">DH<?=$bill['id']?></td>
               <td><?=$bill['order_date']?></td>
-              <td><?=$countProd?></td>
+              <td><?=$countProd['SUM(quantity)']?></td>
               <td><?=$bill['total']?> ₫</td>
               <td><?=$stt?></td>
               <td><a href="index.php?act=billdetail&id=<?=$bill['id']?>">Chi tiết</a></td>

@@ -57,15 +57,16 @@
 					<span class="m-text17">
 						<?=$oneProd['price']?> ₫
 					</span>
-				<?php endif ?>
-
-				<p class="s-text8 p-t-10">
-					Trạng thái: Còn hàng
-				</p>
-
-				<!--  -->
-				<div class="p-t-33 p-b-60">
-					<div class="flex-m flex-w p-b-10">
+					<?php endif ?>
+					
+					<p class="s-text8 p-t-10">
+						Trạng thái: Còn hàng
+					</p>
+					
+					<!--  -->
+				<form action="index.php?act=addCart" method="post">
+					<div class="p-t-33 p-b-60">
+					<!-- <div class="flex-m flex-w p-b-10">
 						<div class="s-text15 w-size15 t-center">
 							Size
 						</div>
@@ -73,22 +74,22 @@
 						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
 							<select class="selection-2" name="size">
 								<option>Choose an option</option>
-								<option>Size S</option>
-								<option>Size M</option>
-								<option>Size L</option>
-								<option>Size XL</option>
+								<option value="S">Size S</option>
+								<option value="M">Size M</option>
+								<option value="L">Size L</option>
+								<option value="XL">Size XL</option>
 							</select>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="flex-r-m flex-w p-t-10">
+					<div class="p-t-10">
 						<div class="w-size16 flex-m flex-w">
 							<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
 								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
 									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
 								</button>
 
-								<input class="size8 m-text18 t-center num-product" type="number" name="num-product" value="1">
+								<input class="size8 m-text18 t-center num-product" type="number" name="quantity" value="1">
 
 								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
 									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
@@ -97,7 +98,6 @@
 
 							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
 								<!-- Button -->
-								<form action="index.php?act=addCart" method="post">
 									<input type="hidden" name="id" id="" value="<?=$oneProd['id']?>">
 									<input type="hidden" name="name" id="" value="<?=$oneProd['name']?>">
 									<input type="hidden" name="img" id="" value="<?=$oneProd['img']?>">
@@ -106,11 +106,11 @@
 									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" value="submit" name="addCart">
 										THÊM VÀO GIỎ
 									</button>
-								</form>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 
 				<div class="p-b-45">
 					<span class="s-text8 m-r-35">Mã sản phẩm: <?=$oneProd['id']?></span>
@@ -134,38 +134,46 @@
 
 				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-						Đánh giá (0)
+						Đánh giá (<?=$countCmt?>)
 						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
 						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
 					</h5>
 
 					<div class="dropdown-content dis-none p-t-15 p-b-23">
-						<p class="s-text8">
-							Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-						</p>
+						<?php foreach ($listCmt as $cmt) :?>
+							<div class="s-text8 flex-w flex-m p-b-21">
+								<span>
+									<i class="fa fa-user" aria-hidden="true"></i>
+										<?=$cmt['username']?>												
+									<span class="m-l-3 m-r-6">|</span>
+								</span>
+	
+								<span>
+									<?=$cmt['date_cmt']?>										
+								</span>
+								
+								<p class="s-text8">
+									<?=$cmt['content']?>
+								</p>
+							</div>
+						<?php endforeach ?>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6">
-			<form action="#" method="POST" name="formcmt" onsubmit="">
-				<input type="hidden" name="productId" value="20">
-				<input type="hidden" name="productlq" value="3">
-				<h4 class="m-text26 p-b-36 p-t-15">
-					Bình luận về sản phẩm
-				</h4>
-				<input type="hidden" name="email" value="">
-				<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13" name="content" placeholder="Viết đánh giá"></textarea>
-				<span class="text-danger" id="errcontent"></span>
-				<div class="w-size25">
-					<button type="submit" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4 m-t-20 btn-cmt">
-						Bình luận
-					</button>
-				</div>
-				<div class="m-t-10"></div>
-				<a href="#" id="err" class="text-danger s-text2"></a>
-			</form>
+
+		<!-- cmt -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function()
+			{
+				$("#comment").load("views/comment/cmt.php", {prodId: <?=$oneProd['id']?>});
+			});
+		</script>
+		<div class="col-md-6" id="comment">
+
 		</div>
+
 	</div>
 
 

@@ -25,9 +25,9 @@
                                         </div>
                                     </td>
                                     <td class="column-2"><?=$value['name']?></td>
-									<td class="column-3"><?=$value['price']?></td>
+									<td class="column-3"><?=$value['price']?> ₫</td>
 									<td class="column-4 p-l-60"><?=$value['quantity']?></td>
-									<td class="column-5"><?=$value['into_money']?></td>
+									<td class="column-5"><?=$value['into_money']?> ₫</td>
                                 </tr>
 								<?php $i += 1; ?>
                             <?php endforeach ?>

@@ -7,6 +7,8 @@
     require_once './model/category.php';
     require_once './model/account.php';
     require_once './model/cart.php';
+    require_once './model/comment.php';
+
 
     if(!isset($_SESSION['myCart'])) {
         $_SESSION['myCart'] = [];
@@ -48,11 +50,13 @@
                     $namCateProd = load_one_product_nameCate($id);
                     extract($namCateProd);
                     $prodSame = load_product_same($id, $cate_id);
+                    $listCmt = load_all_comment($id);
+                    $countCmt = count_comment($id);
                     include_once 'views/product-detail.php';
                 }else {
                     include_once 'views/main.php';
                 }
-                    break;
+                break;
             case 'blog':
                 include_once 'views/blog.php';
                 break;
@@ -99,7 +103,7 @@
                         if (!$error){
                           $email = $_POST['email'];
                           $username = $_POST['user'];
-                          $password = $_POST['pass'];
+                          $password = sha1($_POST['pass']);
                           insert_account($email, $username, $password);
                           $thongbao = "Đã đăng ký thành công. Hãy đăng nhập!";
                         }
@@ -150,7 +154,7 @@
                 if((isset($_POST['update'])) && (($_POST['update']))) {
                     $id= $_POST['id'];
                     $username = $_POST['user'];
-                    $password = $_POST['pass'];
+                    $password = sha1($_POST['pass']);
                     $email = $_POST['email'];
                     $address = $_POST['address'];
                     $tel = $_POST['tel'];
@@ -173,21 +177,47 @@
                     $image = $_POST['img'];
                     $price = $_POST['price'];
                     $sale = $_POST['sale'];
-                    $quantity = 1;
+                    
+                    if (isset($_POST['quantity'])) {
+                        $quantity = $_POST['quantity'];
+                    } else{
+                        $quantity = 1;
+                    }
+
+                    $i = 0;
+                    $flag = 0;
+
+                    if (isset($_SESSION['myCart']) && count($_SESSION['myCart']) > 0 ) {
+                        foreach ($_SESSION['myCart'] as $cart)
+                        {
+                            if($cart[0] == $id){
+                                $quantity += $cart[5];
+                                $flag = 1;
+                                $_SESSION['myCart'][$i][5] = $quantity;
+                                break;
+                            }
+                            $i++;
+                        }
+                    }
+
                     if ($sale > 0) {
                         $intoMoney = $sale * $quantity;
                     } else {
                         $intoMoney = $price * $quantity;
                     }
-                    $prodAdd = [ $id, $name, $image, $price, $sale, $quantity, $intoMoney];
-                    array_push($_SESSION['myCart'],$prodAdd);
+
+                    if ($flag == 0) {
+                        $prodAdd = [ $id, $name, $image, $price, $sale, $quantity, $intoMoney];
+                        array_push($_SESSION['myCart'],$prodAdd);
+                    }
                 }
                 include_once 'views/cart/viewcart.php';
                 break;
             case 'delcart':
                 if(isset($_GET['idcart'])) {
                     array_splice($_SESSION['myCart'], $_GET['idcart'], 1);
-                } else {
+                } 
+                else {
                     $_SESSION['myCart'] = [];
                 }
                 header('Location: index.php?act=viewcart');
