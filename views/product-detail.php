@@ -149,6 +149,7 @@
 								</span>
 	
 								<span>
+									<i class="fa fa-calendar" aria-hidden="true"></i>
 									<?=$cmt['date_cmt']?>										
 								</span>
 								

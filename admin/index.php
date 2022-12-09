@@ -7,6 +7,8 @@
     require_once '../model/product.php';
     require_once '../model/account.php';
     require_once '../model/cart.php';
+    require_once '../model/comment.php';
+    require_once '../model/contact.php';
 
 
     require_once "header.php";
@@ -145,7 +147,7 @@
             case 'addUser':
                 if ((isset($_POST['saveUser'])) && ($_POST['saveUser'])) {
                     $username = $_POST['username'];
-                    $password = sha1($_POST['password']);
+                    $password = $_POST['password'];
                     $email = $_POST['email'];
                     $address = $_POST['address'];
                     $tel = $_POST['tel'];
@@ -178,7 +180,7 @@
                 if ((isset($_POST['saveAcc'])) && ($_POST['saveAcc'])) {
                     $id = $_POST['id'];
                     $username = $_POST['username'];
-                    $password = sha1($_POST['password']);
+                    $password = $_POST['password'];
                     $email = $_POST['email'];
                     $address = $_POST['address'];
                     $tel = $_POST['tel'];
@@ -189,6 +191,26 @@
                 $listAcc = load_all_account();
                 include_once 'account/list.php';
                 break;  
+            
+            /*controller comment */
+            case 'listCmt':
+                $listCmt = load_all_comment(0);
+                include_once 'comment/list.php';
+                break;
+            case 'deleteCmt':
+                if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                    delete_comment($_GET['id']);
+                }
+                $listCmt = load_all_comment(0);
+                include_once 'comment/list.php';
+                break;
+
+            /*controller contact */
+            case 'listCont':
+                $listCont        = load_all_contact();
+                include_once 'contact/list.php';
+                break;
+
             default:
                 require_once "main.php";
                 break;

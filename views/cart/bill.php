@@ -1,4 +1,4 @@
-<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/banners/5bec3087ba690.jpg);">
+<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(uploads/cart.jpg);">
     <h2 class="l-text2 t-center">
         pay		
     </h2>

@@ -29,7 +29,7 @@
                           <th > Số lượng hàng </th>
                           <th> Giá trị đơn hàng</th>
                           <th> Tình trạng </th>
-                          <th> Hành động </th>
+                          <th> Xem </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -58,7 +58,7 @@
                                 <option value="1">Đang giao hàng</option>
                                 <option value="2">Giao thành công</option>
                               </select>
-                              <input type="submit" name="update" value="Update" class="rounded btn-gradient-danger">
+                              <input type="submit" name="update" value="Cập nhật" class="rounded btn-gradient-danger">
                             </form>
                             </td>
                             <td> 

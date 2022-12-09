@@ -1,3 +1,9 @@
+<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(uploads/cart.jpg);">
+    <h2 class="l-text2 t-center">
+        pay		
+    </h2>
+</section>
+
 <section class="cart bgwhite p-t-70 p-b-100">
     <div class="container">
         <div class="bo9 w-size10 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">

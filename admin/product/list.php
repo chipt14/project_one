@@ -47,7 +47,7 @@
                                     <td> 
                                         <img src="../uploads/admin/product/<?= $value['img'] ?>" class="mb-2 mw-100 w-100 mh-100 rounded" alt="image" style="height: 100px !important;">
                                     </td>
-                                    <td> <?=$value['descrip']?> </td>
+                                    <td class="d-inline-block text-truncate" style="max-width: 150px;"> <?=$value['descrip']?> </td>
                                     <td> <?=$value['views']?> </td>
                                     <td> <?=$value['price']?> </td>
                                     <td> <?=$value['sale']?> </td>

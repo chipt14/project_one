@@ -11,9 +11,9 @@
           <div class="col-12 grid-margin stretch-card">
               <div class="card">
                   <div class="card-body">
-                      <form action="index.php?act=addUser" method="POST" enctype="multipart/form-data" class="forms-sample">
+                      <form action="index.php?act=updateAcc" method="POST" enctype="multipart/form-data" class="forms-sample">
                            <div class="form-group">
-                              <input type="text" value="<?=$acc['id']?>" class="form-control" id="exampleInputName1" name="id" placeholder="">
+                              <input type="hidden" value="<?=$acc['id']?>" class="form-control" id="exampleInputName1" name="id" placeholder="">
                           </div>
                           <div class="form-group">
                               <label for="exampleInputName1">Tên thành viên</label>

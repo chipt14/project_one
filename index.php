@@ -8,6 +8,7 @@
     require_once './model/account.php';
     require_once './model/cart.php';
     require_once './model/comment.php';
+    require_once './model/contact.php';
 
 
     if(!isset($_SESSION['myCart'])) {
@@ -64,6 +65,48 @@
                 include_once 'views/about.php';
                 break;
             case 'contact':
+                if(isset($_POST['save-contact']))
+                {
+                    $error = [];
+                    $data = [];
+
+                    if (!empty($_POST['save-contact']))
+                    {
+                        $data['fullname'] = isset($_POST['full-name']) ? $_POST['full-name'] : '';
+                        $data['phonenumber'] = isset($_POST['phone-number']) ? $_POST['phone-number'] : '';
+                        $data['email'] = isset($_POST['email']) ? $_POST['email'] : '';
+                        $data['message'] = isset($_POST['message']) ? $_POST['message'] : '';
+                
+                    
+                        if (empty($data['fullname'])){
+                            $error['fullname'] = 'Bạn chưa nhập tên';
+                        }
+
+                        if (empty($data['phonenumber'])){
+                            $error['phonenumber'] = 'Bạn chưa nhập SĐT';
+                        }
+                    
+                        if (empty($data['email'])){
+                            $error['email'] = 'Bạn chưa nhập email';
+                        }
+                    
+                        if (empty($data['message'])){
+                            $error['message'] = 'Bạn chưa nhập lời nhắn';
+                        }
+                    
+                        if (!$error){
+                            $fullname = $_POST['full-name'];
+                            $tel = $_POST['phone-number'];
+                            $email = $_POST['email'];
+                            $message = $_POST['message'];
+
+                            insert_contact($fullname, $tel, $email, $message);
+                            $thongbao = "Lời nhắn của bạn đã được nhận. Chúng tôi sẽ liên hệ lại ngay!";
+                        }
+                        else{
+                        }
+                    }
+                }
                 include_once 'views/contact.php';
                 break;
             case'register':
@@ -103,7 +146,7 @@
                         if (!$error){
                           $email = $_POST['email'];
                           $username = $_POST['user'];
-                          $password = sha1($_POST['pass']);
+                          $password = $_POST['pass'];
                           insert_account($email, $username, $password);
                           $thongbao = "Đã đăng ký thành công. Hãy đăng nhập!";
                         }
@@ -154,7 +197,7 @@
                 if((isset($_POST['update'])) && (($_POST['update']))) {
                     $id= $_POST['id'];
                     $username = $_POST['user'];
-                    $password = sha1($_POST['pass']);
+                    $password = $_POST['pass'];
                     $email = $_POST['email'];
                     $address = $_POST['address'];
                     $tel = $_POST['tel'];

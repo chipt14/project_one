@@ -111,7 +111,7 @@
 										<ul class="sub_menu">
 											<li><a href="index.php?act=editAcc">Cập nhật tài khoản</a></li>
 											<li><a href="index.php?act=mybill">Đơn hàng của bạn</a></li>
-											<?php if($role == 1) { ?>
+											<?php if($role_id == 1) { ?>
 												<li><a href="admin/index.php">Đăng nhập Admin</a></li>
 											<?php } ?>
 											<li><a href="index.php?act=logout">Thoát</a></li>

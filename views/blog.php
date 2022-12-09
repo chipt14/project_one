@@ -1,5 +1,5 @@
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-05.jpg);">
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(uploads/blog.jpg);">
 		<h2 class="l-text2 t-center">
 			Blog
 		</h2>

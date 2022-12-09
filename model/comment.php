@@ -5,9 +5,18 @@
         pdo_execute($sql);
     }
 
+    function delete_comment($id)
+    {
+        $sql = "DELETE FROM comments WHERE id = $id"; 
+        pdo_execute($sql);
+    }
+
     function load_all_comment($prodId)
     {
-        $sql = "SELECT * FROM accounts a JOIN comments c ON a.id = c.user_id WHERE prod_id = $prodId";
+        $sql = "SELECT * FROM accounts a JOIN comments c ON a.id = c.user_id WHERE 1";
+        if ($prodId > 0) {
+            $sql.= " AND prod_id = $prodId";
+        }
         $listCmt = pdo_query($sql);
         return $listCmt;
     }

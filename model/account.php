@@ -15,7 +15,7 @@
 
     function insert_account($email, $username, $password)
     {
-        $sql = "INSERT INTO accounts (email, username, password) VALUES ('$email', '$username', $password)";
+        $sql = "INSERT INTO accounts (email, username, password) VALUES ('$email', '$username', '$password')";
         pdo_execute($sql);
     }
 
@@ -33,7 +33,7 @@
 
     function check_account($username, $password)
     {
-        $sql = "SELECT * FROM accounts WHERE username = '$username' AND password = $password";
+        $sql = "SELECT * FROM accounts WHERE username = '$username' AND password = '$password'";
         $acc = pdo_query_one($sql);
         return $acc;
     }

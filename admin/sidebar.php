@@ -64,6 +64,62 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages4" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Bình luận</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-comment-account"></i>
+              </a>
+              <div class="collapse" id="general-pages4">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=listCmt">Danh sách bình luận</a></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages5" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Slider</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-view-carousel"></i>
+              </a>
+              <div class="collapse" id="general-pages5">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=addUser">Thêm slider</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=listUser">Danh sách slider</a></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages6" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Blog</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-blogger"></i>
+              </a>
+              <div class="collapse" id="general-pages6">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=addUser">Thêm blog</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=listUser">Danh sách blog</a></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages4" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Contact</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-contact-mail"></i>
+              </a>
+              <div class="collapse" id="general-pages4">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=listCont">Danh sách contact</a></li>
+                </ul>
+              </div>
+            </li>
+
+            
+
+            <li class="nav-item">
               <a class="nav-link" href="pages/charts/chartjs.html">
                 <span class="menu-title">Thống kê</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
