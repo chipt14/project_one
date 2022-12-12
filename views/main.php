@@ -286,10 +286,12 @@
 					Lookbook
 				</h3>
 
-				<span class="btn-play s-text4 hov5 cs-pointer p-t-25" data-toggle="modal" data-target="#modal-video-01">
-					<i class="fa fa-play" aria-hidden="true"></i>
-					Play Video
-				</span>
+				<a href="https://youtu.be/yekdy9NZCdw">
+					<span class="btn-play s-text4 hov5 cs-pointer p-t-25" data-toggle="modal" data-target="#modal-video-01">
+						<i class="fa fa-play" aria-hidden="true"></i>
+						Play Video
+					</span>
+				</a>
 			</div>
 		</div>
 	</section>
@@ -304,77 +306,30 @@
 			</div>
 
 			<div class="row">
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
-					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="./views/public/images/blog-01.jpg" alt="IMG-BLOG">
-						</a>
-
-						<div class="block3-txt p-t-14">
-							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
-									Black Friday Guide: Best Sales & Discount Codes
-								</a>
-							</h4>
-
-							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-							<span class="s-text6">on</span> <span class="s-text7">July 22, 2017</span>
-
-							<p class="s-text8 p-t-16">
-								Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
-							</p>
+				<?php foreach ($listPost as $value) :?>
+					<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+						<!-- Block3 -->
+						<div class="block3">
+							<a href="index.php?act=blog-detail&postId=<?=$value['post_id']?>" class="block3-img dis-block hov-img-zoom">
+								<img src="uploads/admin/blog/<?=$value['post_img']?>" alt="IMG-BLOG">
+							</a>
+	
+							<div class="block3-txt p-t-14">
+								<h4 class="p-b-7">
+									<a href="index.php?act=blog-detail&postId=<?=$value['post_id']?>" class="m-text11">
+										<?=$value['post_title']?>
+									</a>
+								</h4>
+	
+								<span class="s-text7"><?=$value['post_date']?></span>
+	
+								<p class="s-text8 p-t-16">
+									<?=$value['post_desc']?>
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
-					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="./views/public/images/blog-02.jpg" alt="IMG-BLOG">
-						</a>
-
-						<div class="block3-txt p-t-14">
-							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
-									The White Sneakers Nearly Every Fashion Girls Own
-								</a>
-							</h4>
-
-							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-							<span class="s-text6">on</span> <span class="s-text7">July 18, 2017</span>
-
-							<p class="s-text8 p-t-16">
-								Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
-					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="./views/public/images/blog-03.jpg" alt="IMG-BLOG">
-						</a>
-
-						<div class="block3-txt p-t-14">
-							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
-									New York SS 2018 Street Style: Annina Mislin
-								</a>
-							</h4>
-
-							<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-							<span class="s-text6">on</span> <span class="s-text7">July 2, 2017</span>
-
-							<p class="s-text8 p-t-16">
-								Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
-							</p>
-						</div>
-					</div>
-				</div>
+				<?php endforeach ;?>
 			</div>
 		</div>
 	</section>
@@ -391,22 +346,22 @@
 				<div id="jssor_1" style="position: relative; margin: 0px auto; top: 0px; left: 0px; width: 1080px; height: 150px; overflow: hidden; visibility: visible;" data-jssor-slider="1">
 					<div style="position: absolute; display: block; top: 60px; left: 0px; width: 1080px; height: 30px;"><div style="position: absolute; display: block; top: 0px; left: 0px; width: 1080px; height: 30px; transform: scale(1.001);"><div data-u="slides" style="cursor: pointer; position: absolute; top: 0px; left: 0px; width: 1080px; height: 30px; overflow: hidden; margin: 0px; padding: 0px; transform-style: flat; z-index: 0; pointer-events: none;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; z-index: 0;"></div></div><div data-u="slides" style="cursor: pointer; position: absolute; top: 0px; left: 0px; width: 1080px; height: 30px; overflow: hidden; margin: 0px; padding: 0px; transform-style: flat; z-index: 0;">
 		
-											<div style="top: 0px; left: -225px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./views/public/images/brands/brand1.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
-								<a href="http://www.topshop.com/" target="_blank" data-events="auto" data-display="inline" style="z-index: 1; top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block;"></a>
-							</div></div>
-											<div style="top: 0px; left: 5px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./views/public/images/brands/brand2.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
+					<div style="top: 0px; left: -225px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./uploads/admin/brand/mango.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
+						<a href="http://www.topshop.com/" target="_blank" data-events="auto" data-display="inline" style="z-index: 1; top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block;"></a>
+					</div></div>
+											<div style="top: 0px; left: 5px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./uploads/admin/brand/mango.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
 								<a href="https://shop.mango.com/vn" target="_blank" data-events="auto" data-display="inline" style="z-index: 1; top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block;"></a>
 							</div></div>
-											<div style="top: 0px; left: 235px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./views/public/images/brands/brand3.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
+											<div style="top: 0px; left: 235px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./uploads/admin/brand/zara.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
 								<a href="https://www.zara.com/vn/" target="_blank" data-events="auto" data-display="inline" style="z-index: 1; top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block;"></a>
 							</div></div>
-											<div style="top: 0px; left: 465px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./views/public/images/brands/brand5.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
+											<div style="top: 0px; left: 465px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./uploads/admin/brand/asos.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
 								<a href="https://www.asos.com/" target="_blank" data-events="auto" data-display="inline" style="z-index: 1; top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block;"></a>
 							</div></div>
-											<div style="top: 0px; left: 695px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./views/public/images/brands/brand4.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
+											<div style="top: 0px; left: 695px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./uploads/admin/brand/bershka.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
 								<a href="https://www.bershka.com/" target="_blank" data-events="auto" data-display="inline" style="z-index: 1; top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block;"></a>
 							</div></div>
-											<div style="top: 0px; left: 925px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./views/public/images/brands/brand6.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
+											<div style="top: 0px; left: 925px; width: 150px; height: 30px; position: absolute; overflow: hidden; transform-style: flat; z-index: 1;"><div style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; overflow: hidden; background-color: rgba(0, 0, 0, 0); background-image: none;"><img data-u="image" src="./uploads/admin/brand/RiverIsLand.png" border="0" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; max-width: 10000px; z-index: 1;" data-events="auto" data-display="block"></div><div data-events="auto" data-display="block" style="top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block; transform-style: preserve-3d; z-index: 1;">
 								<a href="https://www.riverisland.com/" target="_blank" data-events="auto" data-display="inline" style="z-index: 1; top: 0px; left: 0px; width: 150px; height: 30px; position: absolute; display: block;"></a>
 							</div></div>
 					</div></div></div>

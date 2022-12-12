@@ -9,7 +9,8 @@
     require_once './model/cart.php';
     require_once './model/comment.php';
     require_once './model/contact.php';
-
+    require_once './model/blog.php';
+    require_once './model/post.php';
 
     if(!isset($_SESSION['myCart'])) {
         $_SESSION['myCart'] = [];
@@ -20,6 +21,8 @@
     $top10 = load_all_product_top10();
     $newProd = load_all_product_new();
     $saleProd = load_all_product_sale();
+    $listPost = load_all_post();
+    $listBlog = load_all_blog();
     
     require_once './views/header.php';
     
@@ -59,7 +62,28 @@
                 }
                 break;
             case 'blog':
+                if((isset($_POST['keyw'])) && (isset($_POST['keyw']) > 0) ) {
+                    $keyw = $_POST['keyw'];
+                } else {
+                    $keyw = "";
+                }
+                if((isset($_GET['cateId'])) && (isset($_GET['cateId']) > 0) ) {
+                    $cateId = $_GET['cateId'];
+                }else {
+                    $cateId = 0;
+                }
+                $listPost = load_all_post($keyw, $cateId);
                 include_once 'views/blog.php';
+                break;
+            case 'blog-detail':
+                if((isset($_GET['postId'])) && (isset($_GET['postId']) > 0) ) {
+                    $id = $_GET['postId'];
+                    $onePost= load_one_post($id);
+                    $nameCate = load_one_post_nameCate($id);
+                    include_once 'views/blog-detail.php';
+                }else {
+                    include_once 'views/main.php';
+                }
                 break;
             case 'aboutus':
                 include_once 'views/about.php';
@@ -320,7 +344,12 @@
                 include_once 'views/cart/billcomfirm.php';
                 break;
             case 'mybill':
-                $listBill = load_all_bill($_SESSION['acc']['id']);
+                if((isset($_POST['btn-submit'])) && (isset($_POST['btn-submit']) > 0) ) {
+                    $keyw = $_POST['keyw'];
+                } else {
+                    $keyw = "";
+                }
+                $listBill = load_all_bill($keyw, $retVal = (isset($_SESSION['acc']['id'])) ? $_SESSION['acc']['id'] : '');
                 include_once 'views/cart/mybill.php';   
                 break;
             case 'billdetail':

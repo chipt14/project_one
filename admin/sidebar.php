@@ -2,7 +2,7 @@
           <ul class="nav">
 
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="index.php">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -98,8 +98,22 @@
               </a>
               <div class="collapse" id="general-pages6">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="index.php?act=addUser">Thêm blog</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="index.php?act=listUser">Danh sách blog</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=addBlog">Thêm blog</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=listBlog">Danh sách blog</a></li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-pages7" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Bài viết</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-border-color"></i>
+              </a>
+              <div class="collapse" id="general-pages7">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=addPost">Thêm bài viết</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="index.php?act=listPost">Danh sách bài viết</a></li>
                 </ul>
               </div>
             </li>
@@ -116,15 +130,12 @@
                 </ul>
               </div>
             </li>
-
-            
-
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="pages/charts/chartjs.html">
                 <span class="menu-title">Thống kê</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
-            </li>
+            </li> -->
 
           </ul>
         </nav>

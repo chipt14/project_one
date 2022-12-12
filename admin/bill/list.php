@@ -57,6 +57,7 @@
                                 <option value="0">Đang xử lí</option>
                                 <option value="1">Đang giao hàng</option>
                                 <option value="2">Giao thành công</option>
+                                <option value="3">Đơn hủy</option>
                               </select>
                               <input type="submit" name="update" value="Cập nhật" class="rounded btn-gradient-danger">
                             </form>

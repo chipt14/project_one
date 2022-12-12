@@ -9,7 +9,8 @@
     require_once '../model/cart.php';
     require_once '../model/comment.php';
     require_once '../model/contact.php';
-
+    require_once '../model/blog.php';
+    require_once '../model/post.php';
 
     require_once "header.php";
     require_once "sidebar.php";
@@ -132,7 +133,7 @@
             
             /*controller bill */
             case 'listBill':
-                $listBill = load_all_bill(0);
+                $listBill = load_all_bill($keyword = "", 0);
                 include_once 'bill/list.php';
                 break;
             case 'billDetail':
@@ -207,15 +208,86 @@
 
             /*controller contact */
             case 'listCont':
-                $listCont        = load_all_contact();
+                $listCont = load_all_contact();
                 include_once 'contact/list.php';
                 break;
 
+            /*controller blog */
+            case 'addBlog':
+                if ((isset($_POST['save-blog'])) && ($_POST['save-blog'])) {
+                    $nameBlog = $_POST['name-blog'];
+
+                    insert_blog($nameBlog);
+                    $thongbao = 'Thêm mới thành công';
+                }
+                include_once 'blog/add.php';
+                break;
+            case 'listBlog':
+                $listBlog = load_all_blog();
+                include_once 'blog/list.php';
+                break;
+            case 'deleteBlog':
+                if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                    delete_blog($_GET['id']);
+                }
+                $listBlog = load_all_blog();
+                include_once 'blog/list.php';
+                break;
+            case 'editBlog':
+                if (isset($_GET['id']) && ($_GET['id']) > 0) {
+                    $blog = load_one_blog($_GET['id']);
+                }
+                include_once 'blog/update.php';
+                break;
+            case 'updateBlog':
+                if ((isset($_POST['save-blog'])) && ($_POST['save-blog'])) {
+                    $id = $_POST['id'];
+                    $nameBlog = $_POST['name-blog'];
+                    
+                    update_blog($id, $nameBlog);
+                }
+                $listBlog = load_all_blog();
+                include_once 'blog/list.php';
+                break;
+            
+            /*controller post */
+            case 'addPost':
+                if ((isset($_POST['save-post'])) && ($_POST['save-post'])) {
+                    $blogId = $_POST['blog-id'];
+                    $title = $_POST['title'];
+                    $descrip = $_POST['desc'];  
+                    $content = $_POST['content'];
+
+                    $fileName = $_FILES['image']['name'];
+                    $target_dir = "../uploads/admin/blog/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $date = date('F j, Y');
+
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {}
+                    insert_post($title, $descrip, $content, $fileName, $date, $blogId);
+                    $thongbao = 'Thêm mới thành công';
+                }
+                $listBlog = load_all_blog();
+                include_once 'post/add.php';
+                break;
+            case 'listPost':
+                $listPost = load_all_Post();
+                include_once 'post/list.php';
+                break;
+
             default:
+                $revenue = total_revenue();
+                $product = total_product();
+                $client = count_client();
                 require_once "main.php";
                 break;
         }
     } else {
+        $revenue = total_revenue();
+        $product = total_product();
+        $client = count_client();
         require_once "main.php";
     }
 

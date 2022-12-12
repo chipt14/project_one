@@ -34,9 +34,28 @@
         return $listViewDetail;
     }
 
-    function load_all_bill($userId)
+    // function load_all_bill($userId)
+    // {
+    //     $sql = "SELECT * FROM bills WHERE 1";
+    //     if($userId > 0){
+    //         $sql.=" AND user_id = $userId";
+    //     }
+    //     $sql.=" ORDER BY id DESC";
+    //     $listBill = pdo_query($sql);
+    //     return $listBill;
+    // }
+
+    function load_all_bill($keyword = "", $userId)
     {
-        $sql = "SELECT * FROM bills WHERE 1";
+        if (isset($_SESSION['acc'])) {
+            $sql = "SELECT * FROM bills WHERE 1";
+        } else {
+            $sql = "SELECT * FROM bills WHERE user_id = 0";
+        }
+        
+        if($keyword != ""){
+            $sql.=" AND id LIKE '%$keyword%'";
+        }
         if($userId > 0){
             $sql.=" AND user_id = $userId";
         }
@@ -63,6 +82,29 @@
         $bill = pdo_query_one($sql);
         return $bill;
     }
+
+    function total_revenue()
+    {
+        $sql = "SELECT SUM(total) FROM bills WHERE bill_status != 3";
+        $total = pdo_query_one($sql);
+        return $total;
+    }
+
+    function total_product()
+    {
+        $sql = "SELECT SUM(quantity) FROM bill_detail JOIN bills ON bill_detail.bill_id = bills.id WHERE bills.bill_status != 3;";
+        $total = pdo_query_one($sql);
+        return $total;
+    }
+
+    function count_client()
+    {
+        $sql = " SELECT COUNT(bill_email), bill_email FROM bills GROUP BY bill_email";
+        $total = pdo_query($sql);
+        return sizeof($total);
+    }
+
+   
     
     function get_status($x)
     {
@@ -75,6 +117,9 @@
                 break;
             case '2':
                 $stt = 'Giao thành công';
+                break;
+            case '3':
+                $stt = 'Đơn đã hủy';
                 break;
             default:
                 $stt = 'Đang xử lí';

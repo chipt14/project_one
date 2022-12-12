@@ -1,7 +1,7 @@
 <div class="main-panel">
   <div class="content-wrapper">
       <div class="page-header">
-          <h3 class="page-title"> Thêm danh mục </h3>
+          <h3 class="page-title"> Cập nhật danh mục </h3>
       </div>
       <?php if(isset($thongbao) && ($thongbao != "")) :?>
         <span class="progress-bar progress-bar-striped bg-success rounded"><?=$thongbao;?></span>

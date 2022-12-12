@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2022 at 04:07 AM
+-- Generation Time: Dec 12, 2022 at 04:38 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -71,11 +71,18 @@ CREATE TABLE `bills` (
 
 INSERT INTO `bills` (`id`, `user_id`, `bill_name`, `bill_address`, `bill_tel`, `bill_email`, `bill_paymethod`, `order_date`, `total`, `bill_status`) VALUES
 (111, 16, 'Admin', 'Hà Nội', '0372953295', 'christine@gmail.com', 1, '05/12/2022 21:11:51', 689000, 2),
-(112, 18, 'Fashe', 'Hà Nội', '0372953295', 'fashe@gmail.com', 1, '04/12/2022 22:07:03', 399000, 2),
-(113, 16, 'Admin', 'Hà Nội', '0372953295', 'christine@gmail.com', 1, '05/12/2022 10:07:11', 569000, 0),
+(112, 18, 'Fashe', 'Hà Nội', '0372953295', 'fashe@gmail.com', 1, '04/12/2022 22:07:03', 399000, 3),
+(113, 16, 'Admin', 'Hà Nội', '0372953295', 'christine@gmail.com', 1, '05/12/2022 10:07:11', 569000, 3),
 (114, 18, 'Fashe', 'Hà Nội', '0372953295', 'fashe@gmail.com', 1, '05/12/2022 13:34:03', 899000, 1),
 (115, 16, 'Admin', 'Hà Nội', '0372953295', 'christine@gmail.com', 1, '06/12/2022 21:03:50', 1350000, 0),
-(116, 18, 'Fashe', 'Hà Nội', '0372953295', 'fashe@gmail.com', 1, '07/12/2022 16:52:57', 1297000, 1);
+(116, 18, 'Fashe', 'Hà Nội', '0372953295', 'fashe@gmail.com', 1, '07/12/2022 16:52:57', 1297000, 1),
+(117, 16, 'Admin', 'Quảng Ninh', '0372953295', 'christine@gmail.com', 1, '10/12/2022 08:03:03', 798000, 2),
+(118, 16, 'Admin', 'Quảng Ninh', '0372953295', 'christine@gmail.com', 1, '10/12/2022 08:06:06', 299000, 0),
+(119, 16, 'Admin', 'Quảng Ninh', '0372953295', 'christine@gmail.com', 1, '10/12/2022 08:07:53', 675000, 1),
+(121, 0, 'chi pham', 'hanoi', '0372953295', 'christine@gmail.com', 1, '10/12/2022 08:53:26', 399000, 0),
+(122, 0, 'chi pham', 'hanoi', '0372953295', 'admin', 1, '11/12/2022 12:57:15', 598000, 2),
+(123, 16, 'Admin', 'Quảng Ninh', '0372953295', 'christine@gmail.com', 1, '11/12/2022 14:48:41', 300000, 0),
+(124, 0, 'thi', 'hanoi', '12345678', 'thi@gmail.com', 1, '11/12/2022 15:57:31', 1269000, 0);
 
 -- --------------------------------------------------------
 
@@ -110,7 +117,35 @@ INSERT INTO `bill_detail` (`id`, `user_id`, `pro_id`, `img`, `name`, `price`, `q
 (109, 16, 28, 'sp11.jpg', 'CLASSIC - ALL BLACK', 675000, 2, 1350000, 115),
 (110, 18, 21, 'sp2.jpg', 'MORGAN PANTS', 300000, 1, 300000, 116),
 (111, 18, 16, '5bfcc6f26b93b.jpg', 'LOE TEE', 399000, 1, 399000, 116),
-(112, 18, 20, 'sp3.jpg', 'BUOC PANTS', 299000, 2, 598000, 116);
+(112, 18, 20, 'sp3.jpg', 'BUOC PANTS', 299000, 2, 598000, 116),
+(113, 16, 16, '5bfcc6f26b93b.jpg', 'LOE TEE', 399000, 2, 798000, 117),
+(114, 16, 17, 'sp6.jpg', 'S TEE', 299000, 1, 299000, 118),
+(115, 16, 28, 'sp11.jpg', 'CLASSIC - ALL BLACK', 675000, 1, 675000, 119),
+(116, 0, 16, '5bfcc6f26b93b.jpg', 'LOE TEE', 399000, 1, 399000, 121),
+(117, 0, 17, 'sp6.jpg', 'S TEE', 299000, 2, 598000, 122),
+(118, 16, 21, 'sp2.jpg', 'MORGAN PANTS', 300000, 1, 300000, 123),
+(119, 0, 22, 'sp1.jpg', 'COLE PANTS', 290000, 3, 870000, 124),
+(120, 0, 16, '5bfcc6f26b93b.jpg', 'LOE TEE', 399000, 1, 399000, 124);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `blog_id` int(11) NOT NULL,
+  `blog_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`blog_id`, `blog_name`) VALUES
+(1, 'KIẾN THỨC'),
+(2, 'XU HƯỚNG'),
+(3, 'PHONG CÁCH');
 
 -- --------------------------------------------------------
 
@@ -153,13 +188,14 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `content`, `user_id`, `prod_id`, `date_cmt`) VALUES
 (17, 'Nếu biết cách nắm bắt thời cơ, bạn hoàn toàn có thể tranh thủ tìm kiếm những mẫu quần áo sale chất lượng tốt, dễ phối hợp với các mùa tiếp theo, với giá thành vô cùng dễ chịu.', 18, 16, '05/12/2022 16:21:16'),
-(19, 'Dù là cơm mưa băng giá, dù đợi chờ là nỗi xót xa dù tình chỉ là mong manh bờ môi còn khao khát chờ', 16, 16, '05/12/2022 18:58:48'),
 (21, 'Ngày hôm nay sẽ bảo vệ về sản phẩm bán quần áo mong được điểm như ý', 16, 14, '06/12/2022 07:21:46'),
 (22, 'Văn học là một trong những loại hình giữ vị trí quan yếu nằm trong 7 loại hình nghệ thuật cơ bản.', 16, 28, '06/12/2022 21:02:41'),
 (23, 'Dịch vụ của Google, được cung cấp miễn phí, dịch nhanh các từ, cụm từ và trang web giữa tiếng Anh và hơn 100 ngôn ngữ khác.', 16, 27, '07/12/2022 14:32:16'),
 (24, 'Mới đây, video phỏng vấn thí sinh dự thi tuyển sinh ở một trường đại học tại Trung Quốc đã gây tranh cãi khi phóng viên đặt những câu hỏi vô cùng “duyên dáng” cho thí sinh.', 16, 22, '07/12/2022 15:39:49'),
 (25, 'Theo đó, cô gái vừa ra khỏi phòng thi đã bị phóng viên gọi lại hỏi liên tiếp “tại sao đi thi còn trang điểm, thời gian trang điểm để ôn tập có phải tốt hơn không?”.', 16, 22, '07/12/2022 15:40:18'),
-(26, 'Đáp trả lại, cô gái hỏi ngược lại phóng viên “tại sao đi thi lại không được trang điểm?”, và còn cho biết mình đã được tuyển thẳng rồi, nên chỉ đến dự thi để xem thi như thế nào thôi. ', 16, 22, '07/12/2022 15:40:30');
+(26, 'Đáp trả lại, cô gái hỏi ngược lại phóng viên “tại sao đi thi lại không được trang điểm?”, và còn cho biết mình đã được tuyển thẳng rồi, nên chỉ đến dự thi để xem thi như thế nào thôi. ', 16, 22, '07/12/2022 15:40:30'),
+(27, 'Chất lượng quần đúng với giá. Mua đúng đợt sale khá hời nha mọi người!', 16, 21, '09/12/2022 13:20:31'),
+(28, '\r\nXin chào mọi người mình là Hà Nhi, đây là Youtube chính thức của mình. Youtube channel này để chia sẻ tất cả những bài hát mới của Nhi, những khoảnh khắc trong cuộc sống và công việc của Nhi với tất cả mọi người. Cảm ơn sự yêu quý và quan tâm của tất cả mọi người dành cho Nhi.', 18, 18, '11/12/2022 21:58:42');
 
 -- --------------------------------------------------------
 
@@ -181,6 +217,31 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`contact_id`, `full_name`, `tel`, `email`, `message`) VALUES
 (1, 'Phạm Thanh Chi', '0372953295', 'thanhchi.pham.14@gmail.com', 'Tôi muốn mua sản phẩm a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `post_id` int(11) NOT NULL,
+  `post_title` varchar(255) NOT NULL,
+  `post_desc` text NOT NULL,
+  `post_content` text NOT NULL,
+  `post_img` varchar(255) NOT NULL,
+  `post_date` varchar(255) NOT NULL,
+  `blog_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `post_title`, `post_desc`, `post_content`, `post_img`, `post_date`, `blog_id`) VALUES
+(2, 'Sắc tố da của bạn là gì? Bí kíp phối màu trang phục cho từng sắc tố da', 'Bàn về việc chọn màu sắc quần áo sao cho phù hợp với làn da, đa số mọi người đều cho rằng da ngăm hợp màu tối, da trắng dễ phối màu. Quan niệm như vậy đã thực sự đúng? Trên thực tế, để quyết định màu sắc trang phục phù hợp, chúng ta cần xác định rõ sắc tố da (undertone) của mình.', 'Bàn về việc chọn màu sắc quần áo sao cho phù hợp với làn da, đa số mọi người đều cho rằng da ngăm hợp màu tối, da trắng dễ phối màu. Quan niệm như vậy đã thực sự đúng? Trên thực tế, để quyết định màu sắc trang phục phù hợp, chúng ta cần xác định rõ sắc tố da (undertone) của mình.\r\n1. Cách xác định sắc tố da\r\nSắc tố da hay còn gọi là undertone. Mỗi người sẽ có một loại undertone khác nhau, không thay đổi theo thời gian. Sắc tố da khác hẳn với màu da (màu da sẽ thay đổi khi có tác động từ môi trường, thực phẩm, sinh lý…). Sắc tố da chỉ sắc độ, tông màu da của bạn (tông ấm, lạnh, trung tính)\r\n2. Sắc tố da ấm (Warm Undertone)\r\nĐối với cô nàng có sắc tố da ấm, cách phối màu quần áo mà bạn nên chọn là những tông màu ấm, nóng như đỏ, san hô, vàng, cam, hồng đào.\r\n3. Sắc tố da lạnh (Cool Undertone)\r\nNgược lại, những sắc xanh và tím như xanh ngọc, xanh nước biển, thạch anh tím, màu lavender sẽ là sự lựa chọn hoàn hảo cho cô nàng có Cool Undertone.\r\n4. Sắc tố da trung tính (Neutral Undertone)\r\nDường như những cô gái Neutral Undertone luôn rạng rỡ khi chọn bất kì cách phối màu quần áo nào. Nhưng những sắc màu nhẹ nhàng sẽ luôn phù hợp với nàng hơn.\r\nĐối với trang phục màu trung tính, cách phối màu quần áo tốt nhất sẽ là những tông màu trắng, xám và đen. Các nàng cũng đừng quên tránh xa những gam màu rực rỡ vì chúng sẽ áp đảo làn da của bạn. \r\nVới những bí quyết trên đây, Fahse. hi vọng bạn sẽ hiểu về làn da của mình hơn để có những sự lựa chọn màu sắc phù hợp. Hãy ghé thăm website Fashe. ngay để lựa chọn cho tủ đồ của mình thêm nhiều màu sắc quần áo hơn bạn nhé!', 'post 1.jpg', 'December 9, 2022', 1),
+(3, 'Đi đám cưới mặc gì? Cách lựa chọn trang phục phù hợp dành cho nàng', 'Mùa cưới đến, không ít nàng băn khoăn vì không biết lựa chọn mẫu đầm dự tiệc sao cho nổi bật mà không “át vía cô dâu”. Fashe sẽ chỉ bạn cách chọn trang phục phù hợp mà vẫn thật xinh đẹp nhé!', 'Mùa cưới đến, không ít nàng băn khoăn vì không biết lựa chọn mẫu đầm dự tiệc sao cho nổi bật mà không “át vía cô dâu”. Fashe sẽ chỉ bạn cách chọn trang phục phù hợp mà vẫn thật xinh đẹp nhé!\r\n\r\n1. Chọn trang phục theo Dresscode\r\nTrong nhiều sự kiện trang trọng, đặc biệt là lễ cưới, phía tổ chức lễ sẽ yêu cầu những quan khách tham gia buổi lễ phải tuân thủ theo một nguyên tắc ăn mặc nào đó do phía tổ chức lễ quy định. Quan khách khi tham gia lễ phải tuân thủ theo những nguyên tắc trang phục này để tạo sự đồng bộ với tất cả mọi người. Đó được gọi chung là dresscode. \r\n\r\nHiện nay, nhiều người tổ chức tiệc cưới sẽ thường ghi rõ dresscode trong thiệp mời, vì vậy nàng cần đọc rõ để tránh những tình huống bối rối trong tiệc cưới nhé.\r\n\r\n2. Chọn trang phục phù hợp với địa điểm tổ chức đám cưới\r\nTiệc cưới tại nhà hàng/ khách sạn\r\nMột buổi tiệc cưới được tổ chức trong khách sạn sang trọng, quy mô thì nàng nên đầu tư kỹ cho phần trang phục của mình.\r\n\r\nLựa chọn tông màu đen nhưng vẫn cực thu hút bởi chất liệu và thiết kế độc đáo.\r\n\r\nCác chất liệu đầm từ lụa, vải tapta giúp nàng trông thật sang trọng.\r\n\r\nHoặc lựa chọn set đồ áo yếm, quần dài cũng rất phù hợp với các bữa tiệc bên bờ biển.\r\n\r\nTiệc cưới trong vườn\r\n \r\n\r\nTiệc cưới được tổ chức ở sân vườn với những bãi cỏ xanh mát sẽ đem đến cảm giác dễ chịu. Vì thế, hãy chọn những trang phục có thiết kế tối giản, nhẹ nhàng và trẻ trung nhé.\r\n\r\n3. Chọn trang phục phù hợp với vóc dáng cơ thể\r\nTrang phục đẹp nhất là khi bạn cảm thấy tự tin nhất và thoải mái khi mặc. Bởi vậy việc lựa chọn trang phục sao cho phù hợp với vóc dáng nàng là điều rất quan trọng.\r\n\r\n \r\n\r\nNàng “nấm lùn” hãy chọn các thiết kế đầm ngắn, tối giản chi tiết, diện cùng đôi giày cao gót sẽ khiến nàng thật nổi bật.\r\n\r\nMẫu đầm trễ vai là sự lựa chọn hoàn hảo dành cho nàng muốn che khuyết điểm ở bắp tay.\r\n\r\nNàng muốn giấu vòng 2 hãy chọn các mẫu đầm suông hoặc đầm có tùng xòe rộng nhé!\r\n\r\n4. Chọn trang phục theo cá tính của bạn\r\nTrang phục đi tiệc cưới không chỉ là những mẫu đầm formal mà dù nàng theo phong cách nào cũng sẽ có nhiều lựa chọn phù hợp dành cho mình.\r\n\r\nPhóng khoáng nam tính\r\nLựa chọn một bộ suit thoải mái, thời thượng cùng tông màu tươi sáng, kết hợp cùng phụ kiện kính mắt, giày cao gót, túi xách là diện mạo hoàn hảo dành cho nàng cá tính, hiện đại.\r\n\r\nYêu kiều quyến rũ\r\nNàng nữ tính và muốn một diện mạo quyến rũ thì hãy chọn những mẫu đầm ôm sát, tôn dáng hoặc những thiết kế cut-out khéo léo khoe vóc dáng nàng.\r\n\r\nTối giản nhưng không đơn giản\r\nĐiểm cộng cho trang phục tối giản là cách nàng kết hợp cùng phụ kiện độc đáo hay những món đồ “hàng hiệu” sẽ giúp nàng thật ấn tượng.\r\n\r\nHi vọng bài viết đã giúp nàng “gỡ rối” và lựa chọn được những bộ cánh xinh đẹp dành cho tiệc cưới. Nàng đừng quên ghé thăm website/app IVY moda để mặc đẹp hơn mỗi ngày nhé!', 'post 2.jpg', 'December 9, 2022', 2),
+(4, 'Dark Academia - Phong cách thời trang mang màu sắc quý tộc châu Âu', 'Dark Academia - Phong cách rất thời trang quen thuộc trong những bộ phim Hollywood hoài cổ. Bạn có từng suýt xoa trước gu ăn mặc sang trọng, quyền quý của các nhân vật trong Harry Potter hay Wild Child? Đó chính xác là phong cách thời trang Dark Academia đặc trưng mà chúng ta đang nói tới.. Hãy cùng Fahse tìm hiểu về Dark Academia trong bài viết dưới đây.', 'Dark Academia - Phong cách rất thời trang quen thuộc trong những bộ phim Hollywood hoài cổ. Bạn có từng suýt xoa trước gu ăn mặc sang trọng, quyền quý của các nhân vật trong Harry Potter hay Wild Child? Đó chính xác là phong cách thời trang Dark Academia đặc trưng mà chúng ta đang nói tới.. Hãy cùng Fashe tìm hiểu về Dark Academia trong bài viết dưới đây.\r\n\r\nSơ lược về phong cách thời trang Dark Academia\r\nThời trang Dark Academia phổ biến từ những năm 30, 40 của thế kỷ trước. Bản thân nó có lịch sử hình thành lâu đời với nguồn cảm hứng xa xưa. Khoảng thời gian gần đây phong cách này đang tạo nên cơn sốt khiến không ít thế hệ Gen Z mê mẩn.\r\n\r\nPhong cách thời trang Dark Academia là gì?\r\nDark Academia là phong cách thời trang bắt nguồn từ nghệ thuật phương Tây. Phong cách này xuất phát từ quan niệm cổ điển của giới quý tộc Châu Âu về cái đẹp. Do đó, phong cách này đặc biệt gắn với văn học cổ điển, tri thức và sự tôn trọng chủ nghĩa cá nhân. Thoạt nhìn, phong cách thời trang Dark Academia có phần khá trầm tối và bí ẩn. Song, phong cách này cũng là điều khiến phong cách này trở nên hấp dẫn. Những người theo đuổi thời trang Dark Academia thường có niềm đam mê khám phá lịch sử, văn học và đặc biệt là cái đẹp.\r\n\r\nLịch sử hình thành phong cách Dark Academia\r\nĐể hiểu rõ phong cách Dark Academia là gì? Hãy cùng đào sâu vào lịch sử và nguồn gốc hình thành của phong cách nào. Như đã đề cập ở trên, phong cách này tồn tại từ thời kì hoàng kim của quý tộc Châu Âu. Cụ thể hơn, phong cách Dark Academia khởi nguồn từ đồng phục của học sinh tư thục vào những năm 1930 - 1940. Vào thời điểm này, đây là phong cách phổ biến trong giới thượng lưu. Quần áo, phong cách Dark Academia sẽ giúp diện thể hiện sự ngưỡng mộ đối với văn học cổ điển. Đó là lý do vì sao phong cách này có phần trầm tối và bí ẩn. \r\n\r\nVì sao phong cách Dark Academia được tín đồ thời trang yêu thích?\r\nDù đã xuất hiện khá lâu, song gần đây Dark Academia vẫn gây bão trong cộng đồng Gen Z. \r\n\r\nPhong cách phổ biến trên mạng xã hội\r\nPhong cách Dark Academia không chỉ xuất hiện trong phim ảnh mà xu hướng này còn tiếp cận với thế hệ trẻ trên mạng. Với hashtag #DarkAcademia, bạn có thể tìm thấy vô vàn những hình ảnh đặc trưng với phong cách này. Tiktok và các MXH phổ biến hiện nay cũng ghi nhận gần 11 triệu lượt xem các video với chủ đề Dark Academia. \r\n\r\nCó thể thấy, xu hướng này có ảnh hưởng lớn đối với thế hệ Gen Z trên không gian mạng. \r\n\r\nKhông dừng lại trong giới thời trang, phong cách Dark Academia còn đi vào lối sống hàng ngày của người trẻ.\r\n\r\nPhong cách hoài niệm cổ điển\r\nGiữa rất nhiều phong cách thời trang hiện đại đang hình thành có rất nhiều người vẫn yêu thích sự hoài cổ và xưa cũ. Những người này thể hiện niềm say mê đó trong âm nhạc của họ, cách họ sống và trang phục họ mặc. Phong cách Academia tương tự với phong cách thời trang vintage. Vốn mang vẻ đẹp cổ kính, lãng mạn, phối đồ Dark Academia giúp người mặc thể hiện rõ cá tính của mình. \r\n\r\nMàu sắc trang phục nhã nhặn, trầm ấm\r\nPhối màu Dark Academia được lấy màu chủ đạo là tông màu trầm ấm, thể hiện nét đẹp nhã nhặn, tinh tế. Với nhiều người, phong cách này khá đen tối và đượm buồn. Song, trên thực tế phong cách Dark Academia có rất nhiều nhánh nhỏ. \r\n\r\nCùng với sự phát triển của thời trang, ba xu hướng chính của thời trang đã được hình thành. Đó là phong cách Light Academia, Dark Academia, và Darkest Academia. Light Academia đặc trưng với các tông màu be, màu nâu nhạt, có phần tươi sáng và nhã nhặn. Trong khi đó, Dark Academia lại mang đến cảm giác trưởng thành và quyền lực với palette tông màu đậm. Darkest Academia sẽ thiên về phong cách Gothic cùng tông đen làm chủ đạo.\r\n\r\nNhững điểm đặc trưng của phong cách Dark Academia\r\nNếu bạn đang mong muốn theo đuổi phong cách Dark Academia hãy lưu ý những nét đặc trưng sau để có một set đồ hoàn hảo nhất. \r\n\r\nChất liệu trang phục đa dạng\r\nXuất phát từ nơi có thời tiết ôn đới, phối đồ theo phong cách Dark Academia mang đặc trưng với nhiều lớp kết hợp khác nhau. Điều này đòi hỏi sự đa dạng trong chất liệu bạn sử dụng. Bạn có thể diện một chiếc áo sơ mi lanh bên trong, áo len cardigan và khoác ngoài là một chiếc blazer chất dạ. \r\n\r\nGam màu hoài cổ\r\nPalette là đặc điểm nhận dạng chính của phong cách Dark Academia. Khi phối đồ phong theo cách Dark Academia, bạn cần chú ý sử dụng gam màu hơi hướng thu - đông hoài cổ. Những tông màu như nâu đất, vàng kem, đỏ rượu sẽ giúp tôn lên làn da trắng. Kết hợp cùng với hoạ tiết kẻ ô truyền thông, tạo nên tinh thần của phong cách thời trang Dark Academia.\r\n\r\nPhụ kiện hơi hướng vintage\r\nDark Academia luôn gắn liền với sự xa hoa, đắt đỏ. Song, ngày nay, việc phối đồ theo phong cách này khá dễ để tìm kiếm các món phụ vintage để “mix & match” tạo nên set đồ. Bạn có thể lựa chọn cho mình phụ kiện chất liệu đồng với hoạ tiết cổ. Bên cạnh đó, thiết kế đính đá cũng là một gợi ý không tồi. Nếu bạn đang muốn thăng cấp cho tổng thể bộ trang phục của mình thì bạn nên chọn các phụ kiện ngọc trai.\r\n\r\nNhững item tạo nên phong cách thời trang Dark Academia\r\nNếu bạn chưa biết Dark Academia style là gì? Mới tập tành phối đồ theo phong cách Dark Academia và không biết nên bắt đầu phối đồ từ đâu? Đừng lo, những gợi ý phối đồ sau đây sẽ dành cho bạn.\r\n\r\nDark Academia với áo sơ mi\r\nÁo sơ mi là item cơ bản nhất với những ai theo đuổi phong cách phối đồ Dark Academia. Với phong cách Dark Academia nam các bạn có thể lựa chọn áo sơ mi như lớp áo trong cùng, bên ngoài khoác thêm áo cardigan hay blazer, phù hợp với không khí mùa thu đông. Tới mùa hè, bạn có thể phối sơ mi cùng với quần kaki hoạ tiết kẻ sọc. Kết hợp cùng một số phụ kiện như mũ, vòng cổ và thắt lưng. Vẫn đảm bảo đúng phong cách Dark Academia mùa hè và không rơi vào trường hợp “thời trang phang thời tiết”.\r\n\r\nKnitwear\r\nKnitwear hay áo len đã trở nên quá phổ biến đối đối với tín đồ Dark Academia. Item này khá đơn giản, nhã nhặn đặc biệt phù hợp diện vào mùa đông lạnh. Khi phối đồ, bạn có thể mặc bên ngoài một chiếc áo sơ mi cùng với phụ kiện là một chiếc caravat. Tổng thể set đồ đúng chuẩn phong cách Harry Potter.\r\n\r\nÁo khoác dáng dài\r\nÁo dài là một trong những trang phục “must-have” để thăng cấp cho phong cách của bạn. Trang phục này rất phổ biến với phong cách Dark Academia cho nam, thể hiện nét đẹp quyền lực, cuốn hút. Các bạn nữ khi diện áo khoác dài tạo cảm giác thanh lịch, tinh tế.  Có thể nói, với trang phục này, tổng thể set đồ của bạn sẽ được thăng hạng kha khá. Song, với các bạn trẻ miền Nam nên chú ý đến chất liệu khi lựa chọn áo khoác. Chất liệu dày sẽ không phù hợp với thời tiết nắng nóng quanh năm.\r\n\r\nÁo len cardigan\r\nNếu áo khoác dài tạo cảm giác cuốn hút, sang chảnh thì áo cardigan sẽ làm mềm tổng thể set đồ của bạn. Loại áo này rất phù hợp để diện vào mùa thu Hà Nội. Khi phối đồ, bạn hãy lựa chọn những tông màu ấm, kết hợp cùng áo thun cổ lọ. Tô điểm cho set đồ bằng một vài phụ kiện nữa là bạn đã có cho mình một tổng thể Light Academia tinh tế.\r\n\r\nTrang phục Sweater Vest\r\nSweater Vest hay áo gile len là item”must-have” với những người theo đuổi phong cách học đường, trí thức. Loại áo này có thể kết hợp cùng áo sơ mi và quần cạp cao, set đồ này rất phù hợp với phong cách Dark Academia nữ.\r\n\r\nDark Academia với quần\r\nThông thường, mọi thường chú trọng vào phần trên mà quên mất quần cũng đóng vai trò quan trọng. Bạn có thể lựa chọn quần Tây dáng suông với tone màu trầm để phù hợp với phong cách Dark Academia. Trong trường hợp không biết phối đồ với quần tây bạn có thể thay thế bằng quần kaki xắn gấu sẽ giúp tối ưu set đồ của bạn.\r\n\r\nDark Academia với giày da\r\nNhững đôi Chelsea boot da hay Dr.Martens là gợi ý đáng quan tâm dành cho các tín đồ Dark Academia. Bên cạnh đó, những đôi giày da cao cổ sẽ làm tổng thể trang phụ của bạn sang trọng hơn.\r\n\r\nCách phối đồ chuẩn phong cách thời trang Dark Academia vừa cổ điển vừa quý tộc\r\nSau đây là những gợi ý phối đồ theo chuẩn phong cách Dark Academia mà bạn có thể tham khảo.\r\n\r\nÁo sweater kết hợp cùng áo choàng và quần tây và giày chelsea\r\nĐây là sự kết hợp hoàn hảo trong cách phối đồ Dark Academia cho nam và nữ. Set đồ tuy đơn giản, nhưng vẫn mang lại cảm giác vô cùng tinh tế và thanh lịch. Bên cạnh đó, để thêm phần “quý tộc” bạn có thể kết hợp cùng các phụ kiện hơi hướng vintage như mũ và kính mắt sẽ gợi ý không tồi.\r\n\r\nPhong cách Dark Academia cho phái nữ\r\nPhong cách Dark Academia dành cho nữ thường rất đa dạng. Nếu theo đuổi phong cách trường học, bạn có thể diện áo sơ mi cùng knitwear và kaki kẻ ô. Hoàn chỉnh set đồ với một đôi Oxford cổ ngắn đi cùng tất cổ cao cùng tông màu. Ngoài ra, nếu bạn là những cô nàng thời thượng, yêu thích phối đồ hãy thử kết hợp layer, “mix & match” để thể hiện cá tính của riêng mình.\r\n\r\nNgười ta thường ví von Dark Academia là đen tối, không phù hợp với những cô gái nhẹ nhàng, điều đó không hề đúng. Các bạn có thể diện áo sơ mi trắng tay bồng, diện ngoài là váy hai dây dài. Tổng thể set đồ lấy tông đen chủ đạo sẽ khiến các bạn vừa chất lại vẫn nhẹ nhàng, thu hút.\r\n\r\nPhong cách Dark Academia cho nam\r\nSo với nữ giới, phái mạnh thường không có nhiều lựa chọn phối đồ theo phong cách Dark Academia. Tuy nhiên các bạn vẫn có thể chú trọng thay đổi chất liệu, màu sắc và những hoạ tiết trên trang phục thay vì kiểu dáng. Bạn có thể sử dụng quần kaki thay thế cho quần tây, tạo cảm giác trẻ trung, thoải mái hơn. Các phụ kiện như caravat, khăn cashmere sẽ tạo cảm giác lịch lãm, đúng chuẩn quý ông.', 'post 3.png', 'December 9, 2022', 3);
 
 -- --------------------------------------------------------
 
@@ -276,6 +337,12 @@ ALTER TABLE `bill_detail`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`blog_id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -292,6 +359,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`contact_id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`post_id`);
 
 --
 -- Indexes for table `products`
@@ -326,13 +399,19 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `bill_detail`
 --
 ALTER TABLE `bill_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+
+--
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -344,7 +423,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -353,10 +432,16 @@ ALTER TABLE `contacts`
   MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `sliders`
