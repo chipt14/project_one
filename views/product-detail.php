@@ -114,7 +114,8 @@
 
 				<div class="p-b-45">
 					<span class="s-text8 m-r-35">Mã sản phẩm: <?=$oneProd['id']?></span>
-					<span class="s-text8">Danh mục: <?=$namCateProd['name']?></span>
+					<span class="s-text8  m-r-35">Danh mục: <?=$namCateProd['name']?></span>
+					<span class="s-text8">Lượt xem: <?=$oneProd['views']?></span>
 				</div>
 
 				<!--  -->

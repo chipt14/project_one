@@ -56,6 +56,7 @@
                     $prodSame = load_product_same($id, $cate_id);
                     $listCmt = load_all_comment($id);
                     $countCmt = count_comment($id);
+                    update_view($id);
                     include_once 'views/product-detail.php';
                 }else {
                     include_once 'views/main.php';
@@ -308,7 +309,6 @@
                     $email = $_POST['email'];
                     $address = $_POST['address'];
                     $tel = $_POST['tel'];
-                    // $paymethod = $_POST['paymethod'];
                     date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $orderDate = date('d/m/Y H:i:s');
                     $billTotal = bill_total();

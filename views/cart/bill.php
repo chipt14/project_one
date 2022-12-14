@@ -39,15 +39,14 @@
                             </d>
                         </div>
                     <?php endforeach ?>
-                    <hr>
-                    <div>
+                    <!-- <hr> -->
+                    <!-- <div>
                         <form action="send_cart.php" method="post" class="flex-w flex-m w-full-sm" name="codeone" onsubmit="return checkCode()">
                             <div class="size11 bo4 m-r-10">
                                 <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon_code" placeholder="Mã giảm giá">
                             </div>
 
                             <div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
-                                <!-- Button -->
                                 <button type="submit" name="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                     Áp dụng
                                 </button>
@@ -55,7 +54,7 @@
                         </form>
                         <span id="errCode" class="text-danger"></span>
                         <p class="s-text11">Lưu ý: Chỉ áp dụng cho một lần mua hàng</p>
-                    </div>
+                    </div> -->
                 </div>
                 <hr>
                 <p class="s-text12 text-right">Tổng: <?=$sum?> ₫</p>

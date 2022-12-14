@@ -85,3 +85,9 @@
         }
         pdo_execute($sql);
     }
+    
+    function update_view($id)
+    {
+        $sql = "UPDATE products SET views = views + 1 WHERE id = $id";
+        $result = pdo_execute($sql);
+    }

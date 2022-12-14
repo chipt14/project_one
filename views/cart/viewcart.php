@@ -42,18 +42,18 @@
                                     <?php else :?>
                                         <td class="column-3"><?=$cart[3]?>₫</td>
                                     <?php endif ?>
-                                        <td class="column-4">
-                                            <div class="flex-w bo5 of-hidden w-size17">
-                                                <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                    <td class="column-4">
+                                        <div class="flex-w bo5 of-hidden w-size17">
+                                            <!-- <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-                                            </button>
-    
-                                            <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="<?=$cart[5]?>" class="column-3">
-                                            
-    
-                                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                            </button> -->
+
+                                            <input class="size4 m-text18 t-center num-product" type="number" name="num-product1" value="<?=$cart[5]?>" class="column-3">
+                                        
+
+                                            <!-- <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-                                            </button>
+                                            </button> -->
                                         </div>
                                     </td>
                                     <td class="column-5">
@@ -100,9 +100,9 @@
 					</div>
 				</div>
 
-				<div class="size11 trans-0-4 m-t-10 m-b-10 m-r-10">
+				<!-- <div class="size11 trans-0-4 m-t-10 m-b-10 m-r-10">
 					<input type="submit" name="btn_update_cart" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Cập nhật giỏ hàng" style="cursor: pointer;">
-				</div>
+				</div> -->
 
                 <div class="size10 trans-0-4 m-t-10 m-b-10">
                     <p class="s-text12">Tổng: <?=$sum?> ₫</p>

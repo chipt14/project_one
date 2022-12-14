@@ -156,7 +156,7 @@
 						<a href="index.php?act=viewcart">
 							<img src="./views/public/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON" title="Giỏ hàng">
 						</a>
-						<span class="header-icons-noti">0</span>
+						<!-- <span class="header-icons-noti">0</span> -->
 					</div>
 				</div>
 			</div>
