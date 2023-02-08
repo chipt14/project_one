@@ -38,9 +38,9 @@
                                     </td>
                                     <td class="column-2"><?=$cart[1]?></td>
                                     <?php if(($cart[4]) > 0) :?>
-                                        <td class="column-3"><?=$cart[4]?>₫</td>
+                                        <td class="column-3"><?=number_format($cart[4])?>₫</td>
                                     <?php else :?>
-                                        <td class="column-3"><?=$cart[3]?>₫</td>
+                                        <td class="column-3"><?=number_format($cart[3])?>₫</td>
                                     <?php endif ?>
                                     <td class="column-4">
                                         <div class="flex-w bo5 of-hidden w-size17">
@@ -59,9 +59,9 @@
                                     <td class="column-5">
                                         <?php
                                             if(($cart[4]) > 0) {
-                                                echo ($cart[4] * $cart[5]).'₫';
+                                                echo number_format(($cart[4] * $cart[5])).'₫';
                                             } else {
-                                                echo ($cart[3] * $cart[5]).'₫';
+                                                echo number_format(($cart[3] * $cart[5])).'₫';
                                             }
                                         ?>
                                     </td>
@@ -105,7 +105,7 @@
 				</div> -->
 
                 <div class="size10 trans-0-4 m-t-10 m-b-10">
-                    <p class="s-text12">Tổng: <?=$sum?> ₫</p>
+                    <p class="s-text12">Tổng: <?=number_format($sum)?> ₫</p>
                 </div>
 			</div>
 			

@@ -38,7 +38,7 @@
               <td class="text-center" scope="row">DH<?=$bill['id']?></td>
               <td><?=$bill['order_date']?></td>
               <td><?=$countProd['SUM(quantity)']?></td>
-              <td><?=$bill['total']?> ₫</td>
+              <td><?=number_format($bill['total'])?> ₫</td>
               <td><?=$stt?></td>
               <td>
                   <form action="" method="post">

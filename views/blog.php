@@ -107,7 +107,7 @@
 										</a>
 	
 										<span class="dis-block s-text17 p-t-6">
-											<?=$value['price']?> ₫
+											<?=number_format($value['price'])?> ₫
 										</span>
 									</div>
 								</li>

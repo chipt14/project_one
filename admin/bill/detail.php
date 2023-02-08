@@ -30,9 +30,9 @@
                                 <img src="../uploads/admin/product/<?= $value['img'] ?>" alt="" class="mb-2 mw-100 w-100 mh-100 rounded" alt="image" style="height: 100px !important;">
                             </td>
                             <td><?=$value['name']?></td>
-                            <td><?=$value['price']?> ₫</td>
+                            <td><?=number_format($value['price'])?> ₫</td>
                             <td><?=$value['quantity']?></td>
-                            <td><?=$value['into_money']?> ₫</td>
+                            <td><?=number_format($value['into_money'])?> ₫</td>
                          </tr>
                       <?php endforeach ?>
                       </tbody>

@@ -30,9 +30,9 @@
                                 <div class="s-text3">
                                     Tên sản phẩm: <?=$cart[1]?><br>
                                     <?php if(($cart[4]) > 0) :?>
-                                        Giá sản phẩm: <?=($cart[4] * $cart[5])?> ₫<br>
+                                        Giá sản phẩm: <?=number_format(($cart[4] * $cart[5]))?> ₫<br>
                                     <?php else :?>
-                                        Giá sản phẩm: <?=($cart[3] * $cart[5])?> ₫<br>
+                                        Giá sản phẩm: <?=number_format(($cart[3] * $cart[5]))?> ₫<br>
                                     <?php endif ?>
                                     Số lượng: <?=$cart[5]?><br>										
                                 </div>
@@ -57,7 +57,7 @@
                     </div> -->
                 </div>
                 <hr>
-                <p class="s-text12 text-right">Tổng: <?=$sum?> ₫</p>
+                <p class="s-text12 text-right">Tổng: <?=number_format($sum)?> ₫</p>
                 </div>
 
                 <div class="col-md-6 p-b-30">

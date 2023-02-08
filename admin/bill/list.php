@@ -48,7 +48,7 @@
                             </td>
                             <td> <?=$bill['order_date']?> </td>
                             <td><?=$countProd['SUM(quantity)']?></td>
-                            <td> <?=$bill['total']?> ₫ </td>
+                            <td> <?=number_format($bill['total'])?> ₫ </td>
                             <td>
                             <form action="" method="post">
                               <input type="hidden" name="id" value="<?=$bill['id']?>">

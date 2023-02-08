@@ -80,7 +80,7 @@
                 </span>
 
                 <span class="m-text21 w-size20 w-full-sm">
-                    <?=$bill['total']?>
+                    <?=number_format($bill['total'])?>₫
                 </span>
             </div>
 

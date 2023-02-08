@@ -46,16 +46,16 @@
 
 				<?php if (($oneProd['sale']) > 0) :?>
 					<span class="m-text17">
-						<strike><?=$oneProd['price']?> ₫</strike>
+						<strike><?=number_format($oneProd['price'])?> ₫</strike>
 					</span>
 					<span class="m-text17">-</span>
 					<span class="m-text17" style="color: #e65540;">
-						<?=$oneProd['sale']?> ₫
+						<?=number_format($oneProd['sale'])?> ₫
 					</span>
 					
 				<?php else :?>
 					<span class="m-text17">
-						<?=$oneProd['price']?> ₫
+						<?=number_format($oneProd['price'])?> ₫
 					</span>
 					<?php endif ?>
 					
@@ -233,15 +233,15 @@
 
 									<?php if (($value['sale']) > 0) :?>
 										<span class="block2-oldprice m-text7 p-r-5">
-											<?=$value['price']?> ₫
+											<?=number_format($value['price'])?> ₫
 										</span>
 		
 										<span class="block2-newprice m-text8 p-r-5">
-											<?=$value['sale']?> ₫
+											<?=number_format($value['sale'])?> ₫
 										</span>
 									<?php else :?>
 										<span class="block2-price m-text6 p-r-5">
-											<?=$value['price']?> ₫
+											<?=number_format($value['price'])?> ₫
 										</span>
 									<?php endif ?>
 								</div>
